@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Joining Roblox Server...</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      const placeId = params.get("placeId");
+      const jobId = params.get("jobId");
+
+      if (placeId && jobId) {
+        const robloxLink = `roblox://placeId=${placeId}&gameInstanceId=${jobId}`;
+        setTimeout(() => {
+          window.location.href = robloxLink;
+        }, 1000);
+      } else {
+        document.write("Invalid link. Missing placeId or jobId.");
+      }
+    </script>
+  </head>
+  <body>
+    <h2>Opening Roblox...</h2>
+    <p>If nothing happens, copy this into your browser:</p>
+    <code id="manual"></code>
+    <script>
+      const manual = document.getElementById("manual");
+      const params = new URLSearchParams(window.location.search);
+      manual.textContent = `roblox://placeId=${params.get("placeId")}&gameInstanceId=${params.get("jobId")}`;
+    </script>
+  </body>
+</html>
